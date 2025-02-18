@@ -38,4 +38,8 @@ export function pizzaPrice(pizza, ...extras) {
  */
 export function orderPrice(pizzaOrders) {
   let price = 0;
+  for (let i = 0; i < pizzaOrders.length; i++) {
+    price += pizzaPrice(pizzaOrders);
+  }
+  return price;
 }
