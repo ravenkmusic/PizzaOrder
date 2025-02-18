@@ -11,19 +11,31 @@
  * @returns {number} the price of the pizza
  */
 export function pizzaPrice(pizza, ...extras) {
-    throw new Error('Please implement the pizzaPrice function');
+  let pizzaPrices = {
+    Margherita: 7,
+    Caprese: 9,
+    Formaggio: 10,
+    ExtraSauce: 1,
+    ExtraToppings: 2
+  };
+  let price = 0;
+  if (extras.length > 0){
+    price = pizzaPrices[pizza] + pizzaPrice(...extras);
+  } else {
+    price = pizzaPrices[pizza];
   }
-  
-  /**
-   * Calculate the price of the total order, given individual orders
-   *
-   * (HINT: For this exercise, you can take a look at the supplied "global.d.ts" file
-   * for a more info about the type definitions used)
-   *
-   * @param {PizzaOrder[]} pizzaOrders a list of pizza orders
-   * @returns {number} the price of the total order
-   */
-  export function orderPrice(pizzaOrders) {
-    throw new Error('Please implement the orderPrice function');
-  }
-  
+  return price
+}
+
+/**
+ * Calculate the price of the total order, given individual orders
+ *
+ * (HINT: For this exercise, you can take a look at the supplied "global.d.ts" file
+ * for a more info about the type definitions used)
+ *
+ * @param {PizzaOrder[]} pizzaOrders a list of pizza orders
+ * @returns {number} the price of the total order
+ */
+export function orderPrice(pizzaOrders) {
+  throw new Error('Please implement the orderPrice function');
+}
