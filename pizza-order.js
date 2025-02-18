@@ -37,9 +37,7 @@ export function pizzaPrice(pizza, ...extras) {
  * @returns {number} the price of the total order
  */
 export function orderPrice(pizzaOrders) {
-  let price = 0;
-  for (let i = 0; i < pizzaOrders.length; i++) {
-    price += pizzaPrice(pizzaOrders);
-  }
-  return price;
+  const price = pizzaOrders.reduce(
+    (sum, order) => sum + pizzaPrice(order.pizza, ...order.extras), 0); 
+return price;
 }
